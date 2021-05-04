@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="tests.GMTest"/>
+      <class name="tests.ProQuestTest"/>
       <class name="tests.GoogleTest"/>
     </classes>
   </test> <!-- Test -->

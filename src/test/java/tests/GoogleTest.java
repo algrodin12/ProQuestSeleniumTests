@@ -7,12 +7,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;		
 
 import pages.GooglePage;
-import pages.GMPage;
+import pages.ProQuestPage;
 
 public class GoogleTest {		
 	    WebDriver driver;
 	    GooglePage objGoogleSearch;
-	    GMPage objGM;
+	    ProQuestPage objProQuest;
 
 		@BeforeMethod
 		public void beforeTest() 
@@ -23,10 +23,10 @@ public class GoogleTest {
 		/**
 	     * Navigate to https://www.google.com
 	     * Verify Google Home Page & Logo
-	     * Search for 'General Motors'
-	     * Loop through 1st page of results to find https://www.gm.com
-	     * Click on https://www.gm.com
-	     * Verify GM Home Page & Logo
+	     * Search for 'ProQuest'
+	     * Loop through 1st page of results to find https://www.proquest.com
+	     * Click on https://www.proquest.com
+	     * Verify ProQuest Home Page & Logo
 	     */
 		@Test				
 		public void googleTest()
@@ -44,22 +44,22 @@ public class GoogleTest {
 	        objGoogleSearch.verifyGoogleHomePage();
 	        
 		    //Set input value for Search & Enter
-		    objGoogleSearch.setInputValue("General Motors");
+		    objGoogleSearch.setInputValue("ProQuest");
 
 		    //Wait for results to load
 	        objGoogleSearch.waitForPageToLoadById("rcnt");
 	        
-	        //loop through results on first page for www.GM.com and click it
-	        objGoogleSearch.selectGoogleResult("https://www.gm.com"); 
+	        //loop through results on first page for www.proquest.com and click it
+	        objGoogleSearch.selectGoogleResult("https://www.proquest.com"); 
 	        
-	        //Create GM Page object
-	        objGM = new GMPage(driver);
+	        //Create ProQuest Page object
+	        objProQuest = new ProQuestPage(driver);
 			
-	        //Wait for GM Page to Load
-	        objGM.waitForPageToLoad("main");
+	        //Wait for ProQuest Page to Load
+	        objProQuest.waitForPageToLoad("content");
 	        
-	        //Verify GM Logo
-	        objGM.verifyGMHomePageLogo();
+	        //Verify ProQuest Logo
+	        objProQuest.verifyProQuestHomePageLogo();
 		}	
 		
 		@AfterMethod
